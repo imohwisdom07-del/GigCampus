@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #080808;
+  --color-dark-surface: #111111;
+  --color-cyber-green: #22c55e;
+  --color-muted-gray: #6b7280;
+}
+
+@layer base {
+  body {
+    background-color: #080808; /* Force it here */
+    color: white;
+    font-family: sans-serif;
+  }
+}
