@@ -1,16 +1,80 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark-bg: #080808;
-  --color-dark-surface: #111111;
-  --color-cyber-green: #22c55e;
-  --color-muted-gray: #6b7280;
+  /* --- The Midnight Pro Palette --- */
+  --color-dark-bg: #050506;          /* Deep onyx base */
+  --color-dark-surface: #0A0A0C;     /* Card/Nav surface */
+  --color-accent-purple: #8B5CF6;    /* Vibrant branding purple */
+  --color-cyber-green: #22c55e;      /* Success/Status green */
+  --color-muted-slate: #94A3B8;      /* Secondary text */
+  --color-soft-white: #FDFCFE;       /* High-contrast text */
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+}
+
+/* 1. Global Base Styles */
+@layer base {
+  body {
+    /* Switched from Lavender to Dark-BG */
+    @apply bg-dark-bg text-soft-white font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent-purple/30 text-accent-purple;
+  }
+}
+
+/* 2. Utility Classes (The Pro Sauce) */
+@layer utilities {
+  /* High-end Glass: Looks amazing on a dark background */
+  .nav-glass {
+    background: rgba(10, 10, 12, 0.7); 
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.5), 
+      inset 0 0 1px 1px rgba(255, 255, 255, 0.03); 
+  }
+
+  /* Smooth lift for buttons */
+  .btn-hover-lift {
+    @apply transition-all duration-300 hover:scale-[1.03] active:scale-95;
+  }
+
+  /* Branding Glow */
+  .glow-purple {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.35);
+  }
+
+  /* Subtle background grid (Optional luxury touch) */
+  .bg-grid {
+    background-image: radial-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* 3. GSAP Entry State */
+.nav-container {
+  /* We keep this at 1 for now to ensure it shows while you're coding */
+  opacity: 1;
+  visibility: visible;
+}
+:root {
+  /* Fonts */
+  --ff: 'Plus Jakarta Sans', sans-serif;
+
+  /* The GigCampus Type Scale from your notes */
+  --h1: 900 clamp(2.5rem, 7vw, 5.5rem)/1.1 var(--ff);
+  --h2: 800 clamp(2rem, 5vw, 3.5rem)/1.2 var(--ff);
+  --h3: 700 1.5rem/1.4 var(--ff);
+  --body: 400 1rem/1.7 var(--ff);
+  --small: 500 0.875rem/1.6 var(--ff);
 }
 
 @layer base {
-  body {
-    background-color: #080808; /* Force it here */
-    color: white;
-    font-family: sans-serif;
-  }
+  h1 { font: var(--h1); }
+  h2 { font: var(--h2); }
+  h3 { font: var(--h3); }
+  p { font: var(--body); @apply text-muted-slate; }
 }
