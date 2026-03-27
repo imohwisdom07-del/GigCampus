@@ -1,4 +1,4 @@
-// Create this in src/components/sections/CTA.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ const CTA = () => {
   return (
     <section className="py-32 px-6">
       <div className="max-w-5xl mx-auto bg-accent-purple rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-[0_0_50px_rgba(168,85,247,0.2)]">
-        {/* Decorative Circles */}
+       
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-32 -mb-32" />
 

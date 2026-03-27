@@ -1,6 +1,5 @@
-// src/pages/Login.jsx
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Added Link
+import { useNavigate, Link } from 'react-router-dom';
 import { ChevronRight, Lock, Mail, ArrowLeft } from 'lucide-react';
 import gigCampusImg from '../assets/gig-campus-signup.jpeg'; 
 
@@ -10,17 +9,16 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-[#050506] flex items-start justify-center p-6 pt-20 md:pt-32 relative">
       
-      {/* BACK BUTTON: Uses navigate(-1) to go to the previous page */}
       <button 
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/')}
         className="absolute top-8 left-8 text-white/20 hover:text-white transition-colors flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] z-50 group cursor-pointer"
       >
-        <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Go Back
+        <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Exit
       </button>
 
       <div className="max-w-3xl w-full flex flex-col md:flex-row bg-[#0A0A0C] border border-white/5 rounded-[2.5rem] overflow-hidden shadow-2xl min-h-[550px] relative z-10">
         
-        {/* LEFT PANEL */}
+  
         <div className="w-full md:w-1/2 relative min-h-[200px] md:min-h-auto bg-[#111114]">
           <img 
             src={gigCampusImg} 
@@ -28,22 +26,22 @@ const Login = () => {
             className="absolute inset-0 w-full h-full object-cover object-top opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-[#0A0A0C]" />
-          <div className="absolute bottom-10 left-10 hidden md:block">
+          <div className="absolute bottom-10 left-10 hidden md:block text-left">
             <h1 className="text-4xl font-black text-white uppercase tracking-tighter italic leading-none">
               Welcome <br /> <span className="text-accent-purple">Back.</span>
             </h1>
           </div>
         </div>
 
-        {/* RIGHT PANEL */}
         <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-[#0A0A0C]">
           <div className="space-y-8">
-            <div className="space-y-2">
+            <div className="space-y-2 text-left">
               <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic">Login</h2>
               <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">Enter your campus credentials</p>
             </div>
 
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4 text-left" onSubmit={(e) => e.preventDefault()}>
+           
               <div className="relative group">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-accent-purple transition-colors" size={16} />
                 <input 
@@ -74,12 +72,11 @@ const Login = () => {
                   Forgot Password?
                 </p>
                 
-                {/* THE NUCLEAR OPTION: Using Link instead of span + onClick */}
-                <p className="text-center text-[10px] font-bold text-white/20 uppercase tracking-widest relative z-[100]">
+                <p className="text-center text-[10px] font-bold text-white/20 uppercase tracking-widest">
                   New to the campus?{" "}
                   <Link 
                     to="/register" 
-                    className="text-white hover:text-accent-purple inline-block cursor-pointer transition-all underline underline-offset-4 decoration-white/10 hover:decoration-accent-purple font-black"
+                    className="text-white hover:text-accent-purple transition-all underline underline-offset-4 decoration-white/10 font-black"
                   >
                     Create Account
                   </Link>

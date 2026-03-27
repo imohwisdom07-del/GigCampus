@@ -1,4 +1,4 @@
-// src/pages/Schools.jsx
+
 import React from 'react';
 import { SCHOOL_BENEFITS } from '../utilis/data';
 
@@ -6,7 +6,6 @@ const Schools = () => {
   return (
     <div className="pt-32 pb-20 bg-[#050506] min-h-screen px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-20 text-center">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6">
             Empower your <span className="text-accent-purple">Students.</span>
@@ -17,7 +16,6 @@ const Schools = () => {
           </p>
         </div>
 
-        {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {SCHOOL_BENEFITS.map((benefit, index) => (
             <div key={index} className="nav-glass p-10 rounded-[2.5rem] border border-white/5">
@@ -32,7 +30,6 @@ const Schools = () => {
           ))}
         </div>
 
-        {/* Partnership CTA */}
         <div className="mt-20 p-12 rounded-[3rem] bg-accent-purple text-center">
           <h2 className="text-3xl font-black text-white mb-4">Become a Partner School</h2>
           <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">

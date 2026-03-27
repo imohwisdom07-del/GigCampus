@@ -10,12 +10,10 @@ import {
   Video 
 } from 'lucide-react';
 
-// 1. ASSETS
 import stepFindImg from '../assets/step-find.jpeg'; 
 import stepWorkImg from '../assets/step-work.jpeg';
 import stepPayImg from '../assets/step-paid.jpeg';
 
-// 2. NAVIGATION
 export const NAV_LINKS = [
   { name: "Find Gigs", href: "/gigs" },
   { name: "How it Works", href: "/#how-it-works" },
@@ -28,7 +26,6 @@ export const ACTION_LINKS = {
   primary: { name: "Get Started", href: "/register" }
 };
 
-// 3. CATEGORIES
 export const GIG_CATEGORIES = [
   { id: 1, name: "Content Writing", slug: "writing", icon: Edit3 },
   { id: 2, name: "Graphic Design", slug: "design", icon: Palette },
@@ -38,14 +35,12 @@ export const GIG_CATEGORIES = [
   { id: 6, name: "Video Editing", slug: "video", icon: Video },
 ];
 
-// 4. SOCIALS (Minimal Text Version)
 export const SOCIAL_LINKS = [
   { name: "Twitter", href: "https://twitter.com/gigcampus" },
   { name: "LinkedIn", href: "https://linkedin.com/company/gigcampus" },
   { name: "Instagram", href: "https://instagram.com/gigcampus.ng" },
 ];
 
-// 5. STEPS
 export const steps = [
   {
     id: 1,
@@ -70,14 +65,12 @@ export const steps = [
   }
 ];
 
-// 6. STATS
 export const STATS = [
   { id: 1, label: "Active Students", value: "12,000+" },
   { id: 2, label: "Total Paid Out", value: "₦4.5M+" },
   { id: 3, label: "Gigs Completed", value: "8,500" },
 ];
 
-// 7. SCHOOLS
 export const SCHOOL_BENEFITS = [
   { 
     title: "Verified Talent", 
@@ -92,7 +85,6 @@ export const SCHOOL_BENEFITS = [
     desc: "Get real-time data on the digital skills your students are mastering." 
   }
 ];
-// Add this to your src/utilis/data.js
 export const GIG_LIST = [
   {
     id: 1,
@@ -124,4 +116,31 @@ export const GIG_LIST = [
     level: "Expert",
     logo: "LC"
   }
+];
+export const user = {
+  name: 'Oluwaseun Adebayo',
+  campus: 'University of Lagos',
+  verified: true,
+  avatar: 'https://ui-avatars.com/api/?background=8B5CF6&color=fff&name=Oluwaseun+A',
+  totalEarned: 24500,
+  completedJobs: 12,
+  avgRating: 4.8,
+  activeGigs: 2,
+};
+
+export const activeGigs = [
+  { id: 1, title: 'Flyer for Campus Event', price: 5000, applications: 3, status: 'open' },
+  { id: 2, title: 'Social Media Management', price: 15000, applications: 7, status: 'in-progress' },
+];
+
+export const recommendedGigs = [
+  { id: 3, title: 'Logo Design for Startup', budget: 8000, client: 'TechHub UNILAG', skills: ['Graphic Design'] },
+  { id: 4, title: 'Content Writer for Blog', budget: 3000, client: 'CampusPress', skills: ['Content Writing'] },
+  { id: 5, title: 'Video Editing for TikTok', budget: 10000, client: 'Influencer Hub', skills: ['Video Editing'] },
+];
+
+export const activities = [
+  { id: 1, action: 'You applied to "Flyer Design"', time: '2 hours ago', icon: 'check' },
+  { id: 2, action: 'New message from Olamide about your gig', time: '5 hours ago', icon: 'message' },
+  { id: 3, action: 'Your gig "Logo Design" was viewed 12 times', time: '1 day ago', icon: 'eye' },
 ];

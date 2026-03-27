@@ -13,7 +13,6 @@ const Gigs = () => {
     <div className="min-h-screen bg-[#050506] pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
         
-        {/* HEADER */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
             Available <span className="text-accent-purple">Gigs</span>
@@ -21,7 +20,6 @@ const Gigs = () => {
           <p className="text-white/40 font-medium">Verified tasks from Nigerian startups and brands.</p>
         </div>
 
-        {/* FILTER BAR */}
         <div className="flex flex-wrap gap-3 mb-12">
           <button 
             onClick={() => setActiveCategory('all')}
@@ -40,7 +38,6 @@ const Gigs = () => {
           ))}
         </div>
 
-        {/* GIG GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredGigs.map((gig) => (
             <div key={gig.id} className="nav-glass p-6 rounded-[2rem] border border-white/5 hover:border-accent-purple/30 transition-all group cursor-pointer">

@@ -28,8 +28,6 @@ const Navbar = () => {
     <>
       <nav className="fixed top-4 md:top-6 left-0 w-full z-[9999] px-4 md:px-6 flex justify-center">
         <div className="nav-container nav-glass w-full max-w-6xl rounded-2xl md:rounded-full px-5 py-2.5 flex items-center justify-between opacity-0 shadow-xl shadow-indigo-900/5">
-          
-          {/* LOGO */}
           <NavHashLink smooth to="/#" className="flex items-center gap-3 group cursor-pointer no-underline">
             <div className="relative w-10 h-10 flex items-center justify-center">
               <div className="absolute inset-0 border-2 border-accent-purple/20 rounded-xl rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
@@ -51,7 +49,6 @@ const Navbar = () => {
             </div>
           </NavHashLink>
 
-          {/* DESKTOP LINKS */}
           <div className="hidden lg:flex items-center gap-10">
             {NAV_LINKS?.map((link, index) => (
               <NavHashLink 
@@ -66,7 +63,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* RIGHT ACTIONS: Now correctly points to /register */}
           <div className="hidden md:flex items-center gap-4">
             <NavHashLink to="/register">
               <button className="bg-accent-purple hover:bg-white hover:text-black transition-all duration-300 text-white px-7 py-2.5 rounded-xl font-black text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] active:scale-95">
@@ -74,8 +70,6 @@ const Navbar = () => {
               </button>
             </NavHashLink>
           </div>
-
-          {/* MOBILE TOGGLE */}
           <button 
             className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(true)}
@@ -85,7 +79,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
       {isMenuOpen && (
         <div className="mobile-menu fixed inset-0 z-[10000] lg:hidden bg-[#050506]/95 backdrop-blur-xl flex flex-col p-8">
           <div className="flex items-center justify-between mb-12">
@@ -110,7 +103,6 @@ const Navbar = () => {
           </div>
 
           <div className="mt-auto flex flex-col gap-4">
-            {/* Mobile primary action to /register */}
             <NavHashLink to="/register" onClick={() => setIsMenuOpen(false)}>
               <button className="w-full bg-accent-purple text-white py-5 rounded-2xl font-black text-lg uppercase shadow-2xl shadow-purple-600/20 active:scale-95 transition-transform">
                 {ACTION_LINKS?.primary?.name}

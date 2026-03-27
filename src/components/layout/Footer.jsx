@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className="bg-[#050506] py-16 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
         
-        {/* LOGO SECTION */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <span className="font-black text-2xl text-white uppercase tracking-tighter">
             Gig<span className="text-accent-purple">Campus</span>
@@ -16,7 +15,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* SOCIAL LINKS SECTION */}
         <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
           {SOCIAL_LINKS?.map((social, index) => (
             <a 
@@ -32,7 +30,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* COPYRIGHT SECTION */}
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 opacity-40">
           <p className="text-white text-[9px] font-bold uppercase tracking-widest text-center md:text-left">

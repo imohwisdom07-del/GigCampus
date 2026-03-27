@@ -31,7 +31,6 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-32 pb-16 px-6 overflow-hidden bg-[#050506]">
       
-      {/* MOBILE BACKGROUND */}
       <div className="absolute inset-0 lg:hidden z-0">
         <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-20 brightness-[0.3]">
           <source src="/hero-hustle-mobile.mp4" type="video/mp4" />
@@ -41,9 +40,7 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center relative z-10">
         
-        {/* COLUMN 1: THE HOOK (Increased Size) */}
         <div className="flex flex-col items-start text-left">
-          {/* text-7xl for desktop impact */}
           <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tighter leading-[1.05] max-w-2xl">
             {headline.split(" ").map((word, i) => (
               <span key={i} className="inline-block mr-2 md:mr-4">
@@ -52,7 +49,6 @@ const Hero = () => {
             ))}
           </h1>
 
-          {/* text-xl for readable subtext */}
           <p className="hero-reveal text-lg md:text-xl text-white/50 max-w-lg mb-12 font-medium leading-relaxed">
             GigCampus connects <span className="text-white font-semibold">Nigerian undergraduates</span> to remote micro-jobs that pay instantly. Build your portfolio while you study.
           </p>
@@ -67,7 +63,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* COLUMN 2: VIDEO FRAME (Slightly Smaller for Balance) */}
         <div className="desktop-video-frame hidden lg:flex justify-end relative w-full">
           <div className="nav-glass p-2 rounded-[3rem] shadow-2xl border-white/5 relative overflow-hidden w-full max-w-[480px]">
             <div className="relative overflow-hidden rounded-[2.6rem] aspect-video bg-black/40">
@@ -81,7 +76,6 @@ const Hero = () => {
               </video>
             </div>
 
-            {/* SYNCED ALERT */}
             {showAlert && (
               <div className="absolute bottom-8 left-8 nav-glass p-4 px-5 rounded-2xl border border-white/10 shadow-3xl z-20 min-w-[200px] animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <p className="text-[9px] font-black text-white/40 uppercase mb-1 tracking-widest">Incoming Payment</p>
@@ -92,7 +86,6 @@ const Hero = () => {
               </div>
             )}
           </div>
-          {/* AMBIENT GLOW */}
           <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent-purple/10 blur-[120px] rounded-full"></div>
         </div>
 

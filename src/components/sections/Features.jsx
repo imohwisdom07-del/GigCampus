@@ -8,7 +8,6 @@ const Features = () => {
     <section id="categories" className="py-24 bg-[#050506] px-6">
       <div className="max-w-7xl mx-auto">
         
-        {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-xl">
             <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent-purple mb-4">
@@ -24,14 +23,12 @@ const Features = () => {
           </Link>
         </div>
 
-        {/* CATEGORY GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {GIG_CATEGORIES.map((cat) => (
             <div 
               key={cat.id} 
               className="group relative p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:border-accent-purple/50 transition-all duration-500 cursor-pointer overflow-hidden"
             >
-              {/* Hover Glow Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">

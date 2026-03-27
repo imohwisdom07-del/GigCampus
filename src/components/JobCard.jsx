@@ -1,10 +1,10 @@
-// src/components/JobCard.jsx
+
 import React from 'react';
 import { Clock, Banknote, ShieldCheck } from 'lucide-react';
 
 const JobCard = ({ title, price, category, time, company }) => (
   <div className="bg-[#0A0A0C] border border-white/5 p-6 rounded-[2.5rem] hover:border-[#A855F7]/40 transition-all group relative overflow-hidden">
-    {/* Subtle Glow Effect on Hover */}
+  
     <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#A855F7]/5 blur-[80px] group-hover:bg-[#A855F7]/10 transition-all" />
     
     <div className="flex justify-between items-start mb-6">
