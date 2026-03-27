@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 import stepFindImg from '../assets/step-find.jpeg'; 
-import stepWorkImg from '../assets/step-work.jpeg';
+import stepWorkImg from '../assets/step-Work.jpeg';
 import stepPayImg from '../assets/step-paid.jpeg';
 
 export const NAV_LINKS = [
