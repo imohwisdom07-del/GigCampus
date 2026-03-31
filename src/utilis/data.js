@@ -1,3 +1,4 @@
+// src/utilis/data.js
 import { 
   Search, 
   PenTool, 
@@ -14,6 +15,7 @@ import stepFindImg from '../assets/step-find.jpeg';
 import stepWorkImg from '../assets/step-Work.jpeg';
 import stepPayImg from '../assets/step-paid.jpeg';
 
+// ========== LANDING PAGE / PUBLIC DATA ==========
 export const NAV_LINKS = [
   { name: "Find Gigs", href: "/gigs" },
   { name: "How it Works", href: "/#how-it-works" },
@@ -72,19 +74,11 @@ export const STATS = [
 ];
 
 export const SCHOOL_BENEFITS = [
-  { 
-    title: "Verified Talent", 
-    desc: "Every student is authenticated via their institutional email (.edu.ng)." 
-  },
-  { 
-    title: "Work-Study Integration", 
-    desc: "Sync GigCampus tasks with SIWES or industrial training credits." 
-  },
-  { 
-    title: "Skill Analytics", 
-    desc: "Get real-time data on the digital skills your students are mastering." 
-  }
+  { title: "Verified Talent", desc: "Every student is authenticated via their institutional email (.edu.ng)." },
+  { title: "Work-Study Integration", desc: "Sync GigCampus tasks with SIWES or industrial training credits." },
+  { title: "Skill Analytics", desc: "Get real-time data on the digital skills your students are mastering." }
 ];
+
 export const GIG_LIST = [
   {
     id: 1,
@@ -117,30 +111,49 @@ export const GIG_LIST = [
     logo: "LC"
   }
 ];
+
+// ========== DASHBOARD DATA (for JobBoard) ==========
 export const user = {
-  name: 'Oluwaseun Adebayo',
-  campus: 'University of Lagos',
+  name: 'Wisdom Imoh',
+  campus: 'UNILAG',
   verified: true,
-  avatar: 'https://ui-avatars.com/api/?background=8B5CF6&color=fff&name=Oluwaseun+A',
-  totalEarned: 24500,
+  avatar: null,
+  totalEarned: 47500,
   completedJobs: 12,
+  activeGigs: 3,
   avgRating: 4.8,
-  activeGigs: 2,
 };
 
 export const activeGigs = [
-  { id: 1, title: 'Flyer for Campus Event', price: 5000, applications: 3, status: 'open' },
-  { id: 2, title: 'Social Media Management', price: 15000, applications: 7, status: 'in-progress' },
+  { id: 1, title: 'Instagram Management', client: 'FoodieNG Lagos', price: 5000, status: 'In Progress', deadline: '3 days left' },
+  { id: 2, title: 'Logo Design', client: 'Mama Tunde Catering', price: 8000, status: 'In Review', deadline: '1 day left' },
+  { id: 3, title: 'Data Entry — Excel', client: 'Lagos Startup', price: 2000, status: 'Pending', deadline: '5 days left' },
 ];
 
 export const recommendedGigs = [
-  { id: 3, title: 'Logo Design for Startup', budget: 8000, client: 'TechHub UNILAG', skills: ['Graphic Design'] },
-  { id: 4, title: 'Content Writer for Blog', budget: 3000, client: 'CampusPress', skills: ['Content Writing'] },
-  { id: 5, title: 'Video Editing for TikTok', budget: 10000, client: 'Influencer Hub', skills: ['Video Editing'] },
+  { id: 1, title: 'Maths Tutor — 100 Level', budget: 3000, client: 'Private Student', category: 'Tutoring', location: 'UNILAG', type: 'on-campus', urgent: true },
+  { id: 2, title: 'Product Description Writing', budget: 4000, client: 'ShopNG Store', category: 'Writing', location: 'Remote', type: 'remote', urgent: false },
+  { id: 3, title: 'Flyer Distribution', budget: 2500, client: 'Campus Event Co.', category: 'Physical', location: 'On Campus', type: 'on-campus', urgent: true },
+  { id: 4, title: 'Social Media Content', budget: 6000, client: 'Fashion Brand NG', category: 'Social Media', location: 'Remote', type: 'remote', urgent: false },
 ];
 
-export const activities = [
-  { id: 1, action: 'You applied to "Flyer Design"', time: '2 hours ago', icon: 'check' },
-  { id: 2, action: 'New message from Olamide about your gig', time: '5 hours ago', icon: 'message' },
-  { id: 3, action: 'Your gig "Logo Design" was viewed 12 times', time: '1 day ago', icon: 'eye' },
+export const portfolioItems = [
+  { title: 'Vestige Design', category: 'Graphic Design', image: '/images/Student_designing_sneakers.jpeg', earned: '₦15,000' },
+  { title: 'Campus Flyer', category: 'Branding', image: '/images/Student_holding_tech.jpeg', earned: '₦8,000' },
+  { title: 'Tech Week', category: 'Video Editing', image: '/images/Student_desk_with_laptop.jpeg', earned: '₦12,000' },
 ];
+
+export const NAV_ITEMS = [
+  { name: 'Dashboard', icon: 'LayoutDashboard', path: '/dashboard' },
+  { name: 'Jobs', icon: 'Briefcase', path: '/jobs' },
+  { name: 'My Gigs', icon: 'UserCheck', path: '/my-gigs' },
+  { name: 'Messages', icon: 'MessageSquare', path: '/messages' },
+  { name: 'Portfolio', icon: 'FolderOpen', path: '/portfolio' },
+  { name: 'Settings', icon: 'Settings', path: '/settings' },
+];
+
+export const STATUS_COLORS = {
+  'In Progress': { bg: 'bg-[#C8F279]/10', text: 'text-[#C8F279]', border: 'border-[#C8F279]/20' },
+  'In Review':   { bg: 'bg-amber-500/10',  text: 'text-amber-400',  border: 'border-amber-500/20' },
+  'Pending':     { bg: 'bg-white/5',       text: 'text-white/50',   border: 'border-white/10' },
+};
