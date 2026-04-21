@@ -24,8 +24,8 @@ const Categories = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {GIG_CATEGORIES.map((cat) => (
-            <div key={cat.id} className="group relative p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-accent-purple/30 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div key={cat.id} className="group relative p-10 rounded-[2.5rem] bg-white/2 border border-white/5 hover:border-accent-purple/30 transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-linear-to-br from-accent-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent-purple/20 group-hover:scale-110 transition-all duration-500">
@@ -35,7 +35,7 @@ const Categories = () => {
                 <p className="text-white/30 text-sm leading-relaxed mb-8">
                   Get paid for tasks in {cat.name.toLowerCase()}—from startups across Africa.
                 </p>
-                <div className="h-[1px] w-12 bg-white/10 group-hover:w-full group-hover:bg-accent-purple/50 transition-all duration-700" />
+                <div className="h-px w-12 bg-white/10 group-hover:w-full group-hover:bg-accent-purple/50 transition-all duration-700" />
               </div>
             </div>
           ))}

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Features = () => {
   return (
-    <section id="categories" className="py-24 bg-[#050506] px-6">
+    <section id="categories" className="py-24 bg-dark-bg px-6">
       <div className="max-w-7xl mx-auto">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -27,9 +27,9 @@ const Features = () => {
           {GIG_CATEGORIES.map((cat) => (
             <div 
               key={cat.id} 
-              className="group relative p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:border-accent-purple/50 transition-all duration-500 cursor-pointer overflow-hidden"
+              className="group relative p-8 rounded-4xl bg-white/2 border border-white/5 hover:border-accent-purple/50 transition-all duration-500 cursor-pointer overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-accent-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
                 <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent-purple/20 transition-all duration-500">

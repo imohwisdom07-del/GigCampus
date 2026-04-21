@@ -22,7 +22,7 @@ const Login = () => {
 
     // Save user to auth context + localStorage
     login({
-      name: 'Wisdom Imoh',
+      name: 'mohammed Imoh',
       email,
       campus: 'UNILAG',
       verified: true,
@@ -42,7 +42,7 @@ const Login = () => {
             alt="GigCampus Login"
             className="absolute inset-0 w-full h-full object-cover object-top opacity-60 transition-opacity duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-[#0A0A0C]" />
+          <div className="absolute inset-0 bg-linear-to-t md:bg-linear-to-r from-transparent to-dark-surface" />
           <div className="absolute bottom-10 left-10 hidden md:block">
             <h1 className="text-4xl font-black text-white uppercase tracking-tighter italic leading-none">
               Welcome <br /> <span className="text-accent-purple">Back.</span>
@@ -50,8 +50,7 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Form panel */}
-        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-[#0A0A0C]">
+        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-dark-surface">
           <div className="space-y-8">
             <div className="space-y-2">
               <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic">Login</h2>
@@ -77,7 +76,7 @@ const Login = () => {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white/[0.03] border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]"
+                  className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]"
                 />
               </div>
 

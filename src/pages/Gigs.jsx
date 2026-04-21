@@ -10,7 +10,7 @@ const Gigs = () => {
     : GIG_LIST.filter(gig => gig.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-[#050506] pt-32 pb-20 px-6">
+    <div className="min-h-screen bg-dark-bg pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
         
         <div className="mb-12">
@@ -40,7 +40,7 @@ const Gigs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredGigs.map((gig) => (
-            <div key={gig.id} className="nav-glass p-6 rounded-[2rem] border border-white/5 hover:border-accent-purple/30 transition-all group cursor-pointer">
+            <div key={gig.id} className="nav-glass p-6 rounded-4 border border-white/5 hover:border-accent-purple/30 transition-all group cursor-pointer">
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center font-black text-accent-purple border border-white/5">
                   {gig.logo}

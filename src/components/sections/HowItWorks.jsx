@@ -25,8 +25,8 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <section id="how-it-works" className="how-it-works py-24 px-6 relative overflow-hidden bg-[#050506]">
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-accent-purple/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <section id="how-it-works" className="how-it-works py-24 px-6 relative overflow-hidden bg-dark-bg">
+      <div className="absolute bottom-0 right-0 w-75 h-75 bg-accent-purple/5 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         

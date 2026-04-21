@@ -22,9 +22,8 @@ const Hero = () => {
   const headline = "Get paid for what you already know.";
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-[#050506]">
+    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-dark-bg">
       
-      {/* 1. CINEMATIC BACKGROUND VIDEO */}
       <div className="absolute inset-0 z-0">
         <video 
           autoPlay loop muted playsInline 
@@ -33,12 +32,10 @@ const Hero = () => {
           <source src="/hero-hustle.mp4" type="video/mp4" />
         </video>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050506] via-transparent to-[#050506]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050506]/60 via-transparent to-[#050506]/60" />
+        <div className="absolute inset-0 bg-linear-to-b from-dark-bg via-transparent to-dark-bg" />
+        <div className="absolute inset-0 bg-linear-to-r from-dark-bg/60 via-transparent from-dart-bg/60" />
         <div className="absolute inset-0 bg-radial-gradient from-accent-purple/10 via-transparent to-transparent opacity-50 blur-[100px]" />
       </div>
-
-      {/* 2. MAIN CONTENT AREA */}
       <div className="max-w-5xl mx-auto w-full px-6 relative z-10 text-center flex flex-col items-center">
         
         <h1 className="hero-title text-5xl md:text-7xl lg:text-[100px] font-black text-white mb-10 tracking-tighter leading-[0.9] max-w-4xl italic">
@@ -53,7 +50,6 @@ const Hero = () => {
           The first micro-job ecosystem built for <span className="text-white">Nigerian students.</span> High-paying gigs, instant settlements, zero "vawulence."
         </p>
 
-        {/* Action Buttons - UPDATED TO LINKS */}
         <div className="hero-reveal flex flex-col sm:flex-row gap-6 w-full sm:w-auto mb-20">
           <Link 
             to="/gigs" 
@@ -70,10 +66,9 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* 3. TRUST BAR */}
         <div className="hero-reveal w-full pt-12 border-t border-white/5 flex flex-wrap justify-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
            <div className="flex items-center gap-2 font-black text-xs tracking-widest text-white uppercase"><ShieldCheck size={16} className="text-accent-purple"/> UNILAG</div>
-           <div className="flex items-center gap-2 font-black text-xs tracking-widest text-white uppercase"><Zap size={16} className="text-accent-purple"/> UNILORIN</div>
+           <div className="flex items-center gap-2 font-black text-xs tracking-widest text-white uppercase"><Zap size={16} className="text-accent-purple"/> UNIBAN</div>
            <div className="flex items-center gap-2 font-black text-xs tracking-widest text-white uppercase"><Globe size={16} className="text-accent-purple"/> LASU</div>
            <div className="flex items-center gap-2 font-black text-xs tracking-widest text-white uppercase"><ShieldCheck size={16} className="text-accent-purple"/> UNIBEN</div>
         </div>

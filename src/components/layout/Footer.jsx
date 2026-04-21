@@ -3,7 +3,7 @@ import { SOCIAL_LINKS } from '../../utilis/data';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#050506] py-16 border-t border-white/5">
+    <footer className="bg-dark-bg py-16 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
         
         <div className="flex flex-col items-center md:items-start text-center md:text-left">

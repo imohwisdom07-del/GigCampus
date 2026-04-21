@@ -1,14 +1,13 @@
-
 import React from 'react';
 import { Clock, Banknote, ShieldCheck } from 'lucide-react';
 
 const JobCard = ({ title, price, category, time, company }) => (
-  <div className="bg-[#0A0A0C] border border-white/5 p-6 rounded-[2.5rem] hover:border-[#A855F7]/40 transition-all group relative overflow-hidden">
+  <div className="bg-dark-surface border border-white/5 p-6 rounded-[2.5rem] hover:border-[#A855F7]/40 transition-all group relative overflow-hidden">
   
     <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#A855F7]/5 blur-[80px] group-hover:bg-[#A855F7]/10 transition-all" />
     
     <div className="flex justify-between items-start mb-6">
-      <div className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-[9px] font-black text-[#A855F7] uppercase tracking-widest">
+      <div className="px-4 py-1.5 rounded-full bg-white/3 border border-white/5 text-[9px] font-black text-[#A855F7] uppercase tracking-widest">
         {category}
       </div>
       <div className="flex items-center gap-1.5 text-white/20 text-[10px] font-bold">

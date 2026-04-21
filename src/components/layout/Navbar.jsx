@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-4 md:top-6 left-0 w-full z-[9999] px-4 md:px-6 flex justify-center">
+      <nav className="fixed top-4 md:top-6 left-0 w-full z-9999 px-4 md:px-6 flex justify-center">
         <div className="nav-container nav-glass w-full max-w-6xl rounded-2xl md:rounded-full px-5 py-2.5 flex items-center justify-between opacity-0 shadow-xl shadow-indigo-900/5">
           <NavHashLink smooth to="/#" className="flex items-center gap-3 group cursor-pointer no-underline">
             <div className="relative w-10 h-10 flex items-center justify-center">
@@ -41,7 +41,7 @@ const Navbar = () => {
                 Gig<span className="text-accent-purple">Campus</span>
               </span>
               <div className="flex items-center gap-1">
-                <span className="h-[1px] w-3 bg-accent-purple"></span>
+                <span className="h-px w-3 bg-accent-purple"></span>
                 <span className="text-[9px] font-bold text-white/40 tracking-[0.2em] uppercase">
                   Workspace
                 </span>
@@ -80,7 +80,7 @@ const Navbar = () => {
       </nav>
 
       {isMenuOpen && (
-        <div className="mobile-menu fixed inset-0 z-[10000] lg:hidden bg-[#050506]/95 backdrop-blur-xl flex flex-col p-8">
+        <div className="mobile-menu fixed inset-0 z-10000 lg:hidden bg-dark-bg/95 backdrop-blur-xl flex flex-col p-8">
           <div className="flex items-center justify-between mb-12">
              <span className="font-black text-xl text-white uppercase tracking-tighter">Gig<span className="text-accent-purple">Campus</span></span>
              <button onClick={() => setIsMenuOpen(false)} className="p-2 bg-white/5 rounded-full">

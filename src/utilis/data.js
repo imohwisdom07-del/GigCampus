@@ -1,4 +1,4 @@
-// src/utilis/data.js
+
 import { 
   Search, 
   PenTool, 
@@ -15,7 +15,6 @@ import stepFindImg from '../assets/step-find.jpeg';
 import stepWorkImg from '../assets/step-Work.jpeg';
 import stepPayImg from '../assets/step-paid.jpeg';
 
-// ========== LANDING PAGE / PUBLIC DATA ==========
 export const NAV_LINKS = [
   { name: "Find Gigs", href: "/gigs" },
   { name: "How it Works", href: "/#how-it-works" },
@@ -35,6 +34,7 @@ export const GIG_CATEGORIES = [
   { id: 4, name: "Data Entry", slug: "data", icon: Database },
   { id: 5, name: "Virtual Assistant", slug: "va", icon: UserCheck },
   { id: 6, name: "Video Editing", slug: "video", icon: Video },
+  { id: 7, name: "teacher", slug: "teacing", icon: UserCheck }
 ];
 
 export const SOCIAL_LINKS = [
@@ -68,7 +68,7 @@ export const steps = [
 ];
 
 export const STATS = [
-  { id: 1, label: "Active Students", value: "12,000+" },
+  { id: 1, label: "Active Students", value: "10,000+" },
   { id: 2, label: "Total Paid Out", value: "₦4.5M+" },
   { id: 3, label: "Gigs Completed", value: "8,500" },
 ];
@@ -112,7 +112,6 @@ export const GIG_LIST = [
   }
 ];
 
-// ========== DASHBOARD DATA (for JobBoard) ==========
 export const user = {
   name: 'Wisdom Imoh',
   campus: 'UNILAG',
@@ -132,7 +131,7 @@ export const activeGigs = [
 
 export const recommendedGigs = [
   { id: 1, title: 'Maths Tutor — 100 Level', budget: 3000, client: 'Private Student', category: 'Tutoring', location: 'UNILAG', type: 'on-campus', urgent: true },
-  { id: 2, title: 'Product Description Writing', budget: 4000, client: 'ShopNG Store', category: 'Writing', location: 'Remote', type: 'remote', urgent: false },
+  { id: 2, title: 'Product Description Writing', budget: 4000, client: 'ShopNG Store', category: 'Writing', location: 'Remote/ UNIBAN', type: 'remote', urgent: false },
   { id: 3, title: 'Flyer Distribution', budget: 2500, client: 'Campus Event Co.', category: 'Physical', location: 'On Campus', type: 'on-campus', urgent: true },
   { id: 4, title: 'Social Media Content', budget: 6000, client: 'Fashion Brand NG', category: 'Social Media', location: 'Remote', type: 'remote', urgent: false },
 ];
