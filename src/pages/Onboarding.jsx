@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'; 
 import { useNavigate, Link } from 'react-router-dom';
-import { ChevronRight, User, Mail, Sparkles, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { ChevronRight, User, Mail, Sparkles, CheckCircle2, ArrowLeft, Lock, Smartphone } from 'lucide-react';
 import { staggerFadeUp, imageReveal } from '../utilis/animations';
+import { useAuth } from './AuthContext';
 
 import step1Img from '../assets/gig-campus-signup.jpeg';
 import step2Img from '../assets/gigcampus-step2.jpeg';
@@ -10,6 +11,19 @@ import step3Img from '../assets/gigcampus-step3.jpeg';
 const Onboarding = () => {
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
+  const { signUp, resendConfirmation } = useAuth();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
+    skill: '',
+    description: ''
+  });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [resendMessage, setResendMessage] = useState('');
+  const [resending, setResending] = useState(false);
   
   const formRef = useRef(null);
   const imageRef = useRef(null);
@@ -21,6 +35,59 @@ const Onboarding = () => {
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSignUp = async () => {
+    setError('');
+    setResendMessage('');
+
+    if (!formData.name || !formData.email || !formData.password) {
+      setError('Please fill in your name, email, and password before continuing.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await signUp({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        phone: formData.phone,
+      });
+      nextStep();
+    } catch (err) {
+      const message = err?.message || 'Signup failed. Please try again.';
+      if (message.toLowerCase().includes('rate limit')) {
+        setError('Too many confirmation emails were requested. Please check your inbox or wait a few minutes before trying again.');
+      } else if (message.toLowerCase().includes('already registered')) {
+        setError('This email is already registered. Check your inbox for the confirmation email or use login/reset password.');
+      } else {
+        setError(message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendConfirmation = async () => {
+    if (!formData.email) {
+      setResendMessage('Please provide your email before resending confirmation.');
+      return;
+    }
+    setResendMessage('');
+    setResending(true);
+    try {
+      await resendConfirmation(formData.email);
+      setResendMessage('Confirmation email resent. Check your inbox again.');
+    } catch (err) {
+      setResendMessage(err.message || 'Unable to resend confirmation email.');
+    } finally {
+      setResending(false);
+    }
+  };
 
   const sideImages = {
     1: step1Img,
@@ -73,14 +140,51 @@ const Onboarding = () => {
                 <>
                   <div className="relative group">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-accent-purple transition-colors" size={16} />
-                    <input type="text" placeholder="FULL NAME" className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]" />
+                    <input 
+                      type="text" 
+                      placeholder="FULL NAME" 
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]" 
+                    />
                   </div>
                   <div className="relative group">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-accent-purple transition-colors" size={16} />
-                    <input type="email" placeholder="CAMPUS .EDU EMAIL" className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]" />
+                    <input 
+                      type="email" 
+                      placeholder="CAMPUS .EDU EMAIL" 
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]" 
+                    />
                   </div>
-                  <button onClick={nextStep} className="w-full bg-accent-purple text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.15em] hover:brightness-110 active:scale-[0.97] transition-all flex items-center justify-center gap-2 group">
-                    Continue <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="relative group">
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-accent-purple transition-colors" size={16} />
+                    <input 
+                      type="password" 
+                      placeholder="PASSWORD" 
+                      value={formData.password}
+                      onChange={(e) => handleInputChange('password', e.target.value)}
+                      className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]" 
+                    />
+                  </div>
+                  <div className="relative group">
+                    <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-accent-purple transition-colors" size={16} />
+                    <input 
+                      type="tel" 
+                      placeholder="Phone number"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px]" 
+                    />
+                  </div>
+                  {error && <p className="text-red-400 text-[11px] font-medium">{error}</p>}
+                  <button 
+                    onClick={handleSignUp} 
+                    disabled={loading}
+                    className="w-full bg-accent-purple text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.15em] hover:brightness-110 active:scale-[0.97] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                  >
+                    {loading ? 'Creating Account...' : 'Continue'} <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </>
               )}
@@ -89,17 +193,23 @@ const Onboarding = () => {
                 <>
                   <div className="relative group">
                     <Sparkles className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-accent-purple transition-colors" size={16} />
-                    <select className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none appearance-none font-mono text-[11px]">
-                      <option className="bg-dark-surface">SELECT YOUR PRIMARY SKILL</option>
-                      <option className="bg-dark-surface">GRAPHIC DESIGN</option>
-                      <option className="bg-dark-surface">CONTENT WRITING</option>
-                      <option className="bg-dark-surface">VIDEO EDITING</option>
-                      <option className="bg-dark-surface">DATA ENTRY</option>
+                    <select 
+                      value={formData.skill}
+                      onChange={(e) => handleInputChange('skill', e.target.value)}
+                      className="w-full bg-white/3 border border-white/10 p-4 pl-12 rounded-2xl text-white focus:border-accent-purple outline-none appearance-none font-mono text-[11px]"
+                    >
+                      <option className="bg-dark-surface" value="">SELECT YOUR PRIMARY SKILL</option>
+                      <option className="bg-dark-surface" value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                      <option className="bg-dark-surface" value="CONTENT WRITING">CONTENT WRITING</option>
+                      <option className="bg-dark-surface" value="VIDEO EDITING">VIDEO EDITING</option>
+                      <option className="bg-dark-surface" value="DATA ENTRY">DATA ENTRY</option>
                     </select>
                   </div>
                   <textarea 
                     placeholder="TELL US MORE ABOUT WHAT YOU CAN DO..." 
                     rows="3"
+                    value={formData.description}
+                    onChange={(e) => handleInputChange('description', e.target.value)}
                     className="w-full bg-white/3 border border-white/10 p-4 rounded-2xl text-white focus:border-accent-purple outline-none transition-all font-mono text-[11px] resize-none"
                   />
                   <div className="flex gap-3">
@@ -116,15 +226,30 @@ const Onboarding = () => {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <h2 className="text-2xl font-black text-white uppercase italic">Registration Complete</h2>
-                    <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">Your student profile is now live.</p>
+                    <h2 className="text-2xl font-black text-white uppercase italic">Confirm your email</h2>
+                    <p className="text-white/50 text-sm leading-relaxed">
+                      A confirmation link has been sent to <span className="text-accent-purple">{formData.email}</span>.
+                      Please open that email and confirm your address before logging in.
+                    </p>
                   </div>
-                  <button 
-                    onClick={() => navigate('/dashboard')}
-                    className="w-full bg-white text-black py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.15em] hover:bg-accent-purple hover:text-white transition-all shadow-xl shadow-white/5"
-                  >
-                    Enter Workspace
-                  </button>
+                  {resendMessage && (
+                    <p className="text-[11px] text-green-400 font-medium">{resendMessage}</p>
+                  )}
+                  <div className="flex flex-col gap-3">
+                    <button 
+                      onClick={handleResendConfirmation}
+                      disabled={resending}
+                      className="w-full bg-accent-purple text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.15em] hover:brightness-110 active:scale-[0.97] transition-all shadow-xl shadow-white/5 disabled:opacity-50"
+                    >
+                      {resending ? 'Resending...' : 'Resend confirmation email'}
+                    </button>
+                    <button 
+                      onClick={() => navigate('/login')}
+                      className="w-full bg-white text-black py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.15em] hover:bg-accent-purple hover:text-white transition-all shadow-xl shadow-white/5"
+                    >
+                      Back to login
+                    </button>
+                  </div>
                 </div>
               )}
 

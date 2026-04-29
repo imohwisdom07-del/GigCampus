@@ -13,6 +13,7 @@ import Schools from './pages/Schools';
 import Gigs from './pages/Gigs';
 import Onboarding from './pages/Onboarding';
 import Login from './pages/Login';
+import AuthCallback from './pages/AuthCallback';
 
 // Dashboard Pages
 import Dashboard from './pages/Dashboard';
@@ -41,7 +42,7 @@ const AppContent = () => {
     '/settings',
   ];
 
-  const authRoutes = ['/register', '/login'];
+  const authRoutes = ['/register', '/login', '/auth/callback'];
 
   // Check if current path should hide standard layout
   const hideStandardLayout =
@@ -60,6 +61,7 @@ const AppContent = () => {
         <Route path="/gigs" element={<Gigs />} />
         <Route path="/register" element={<Onboarding />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
         <Route
           path="/dashboard"
           element={
