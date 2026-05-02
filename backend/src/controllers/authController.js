@@ -48,7 +48,9 @@ export async function requestPhoneOtp(req, res) {
 }
 
 export async function googleOAuth(req, res) {
-  const redirectTo = process.env.SUPABASE_OAUTH_REDIRECT_URL
+  const protocol = req.headers['x-forwarded-proto'] || 'http'
+  const host = req.headers['x-forwarded-host'] || req.headers.host
+  const redirectTo = `${protocol}://${host}/auth/callback`
 
   const { data, error } = await authClient.auth.signInWithOAuth({
     provider: 'google',
